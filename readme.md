@@ -99,3 +99,21 @@ Filmová databáze.
   - [x] description (String)
   - [x] released_date (Date)
   - [ ] images (FK -> Image)
+
+### Migrace 
+Migrace mění schéma databáze a skládá se ze dvou kroků:
+- `python manage.py makemigrations` - vytvoří migrační skript popisující změny
+- `python manage.py migrate` - spustí migrační skripty -> změnu schématu databáze
+
+## Testování
+Každá aplikace má souboru `tests.py`, do kterého můžeme vkládat testy.
+Testovací soubor lze rozdělit do více souborů, každý z těchto souborů by měl začínat `test*`.
+V případě, že bychom měli testovacích souborů hodně, lze je vložit so složky s 
+názvem začínajícím na `test*`.
+
+Testy spustíme příkazem `python manage.py test`.
+
+Lze spustit testy v jednom zadaném souboru příkazem `python manage.py test viewer.tests`.
+
+Běžné testy se provádějí na virtuální databázi, která má stejné schéma, jak naše
+definovaná databáze v `models.py`, ale je prázdná a nezávislá na skutečné databázi.

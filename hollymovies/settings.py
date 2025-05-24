@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 load_dotenv()
-SECRET_KEY = os.getenv('SECRET_KEY', default='django-insecure-)si+fpno3#)=7__vx-4%ni^&n1wvaz9bju1e+s8*i!e9qt!@f)')
+SECRET_KEY = os.getenv('SECRET_KEY', default='django-insecure-8_&ps9+50v#-ga2_sxx2uz9w*b4t-v0ro_*-u5dmpw+oslc3a9')
 
 # Application definition
 
