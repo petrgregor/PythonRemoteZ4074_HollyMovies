@@ -72,3 +72,13 @@ class Movie(Model):
 
     def __str__(self):
         return self.title_orig
+
+    def length_format(self):
+        # převod délky filmu z minut na formát h:mm
+        # 142 min -> 2:22
+        # 122 min -> 2:02
+        if self.length:
+            hours = self.length // 60
+            minutes = self.length % 60
+            return f"{hours}:{minutes:02}"
+        return None
