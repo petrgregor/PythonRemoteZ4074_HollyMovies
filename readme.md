@@ -57,3 +57,42 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser
 ```
+
+## Popis projektu
+Filmová databáze.
+
+## Funkcionalita
+- [ ] 1 Zobrazení seznamu filmů
+- [ ] 2 Zobrazení detailu filmu
+- [ ] 3 Práce s filmem v databázi
+  - [ ] 3.1 přidání filmu
+  - [ ] 3.2 editace filmu
+  - [ ] 3.3 mazání filmu
+
+## Databáze
+- [ ] Genre
+  - [ ] name (String)
+
+- [ ] Country
+  - [ ] name (String) 
+
+- [ ] Creator
+  - [ ] name (String)
+  - [ ] surname (String)
+  - [ ] country (FK -> Country)
+  - [ ] date_of_birth (Date)
+  - [ ] date_of_death (Date)
+  - [ ] biography (String)
+  - [ ] images (FK -> Image)
+
+- [ ] Movie
+  - [ ] title_orig (String)
+  - [ ] title_cz (String)
+  - [ ] genres (n:m -> Genre)
+  - [ ] countries (n:m -> Country)
+  - [ ] length (Integer)
+  - [ ] directors (n:m -> Creator)
+  - [ ] actors (n:m -> Creator)
+  - [ ] description (String)
+  - [ ] released_date (Date)
+  - [ ] images (FK -> Image)
