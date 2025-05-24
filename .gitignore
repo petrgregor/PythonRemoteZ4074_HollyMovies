@@ -1,0 +1,6 @@
+/.idea
+*.pyc
+/hollymovies/secret_key.py
+/.env
+/viewer/migrations/
+/db.sqlite3
