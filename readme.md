@@ -70,29 +70,32 @@ Filmová databáze.
   - [ ] 3.3 mazání filmu
 
 ## Databáze
-- [ ] Genre
-  - [ ] name (String)
 
-- [ ] Country
-  - [ ] name (String) 
+![ER_diagram](./files/ER_diagram.png)
+
+- [x] Genre
+  - [x] name (String)
+
+- [x] Country
+  - [x] name (String) 
 
 - [ ] Creator
-  - [ ] name (String)
-  - [ ] surname (String)
-  - [ ] country (FK -> Country)
-  - [ ] date_of_birth (Date)
-  - [ ] date_of_death (Date)
-  - [ ] biography (String)
+  - [x] name (String)
+  - [x] surname (String)
+  - [x] country (FK -> Country)
+  - [x] date_of_birth (Date)
+  - [x] date_of_death (Date)
+  - [x] biography (String)
   - [ ] images (FK -> Image)
 
 - [ ] Movie
-  - [ ] title_orig (String)
-  - [ ] title_cz (String)
-  - [ ] genres (n:m -> Genre)
-  - [ ] countries (n:m -> Country)
-  - [ ] length (Integer)
-  - [ ] directors (n:m -> Creator)
-  - [ ] actors (n:m -> Creator)
-  - [ ] description (String)
-  - [ ] released_date (Date)
+  - [x] title_orig (String)
+  - [x] title_cz (String)
+  - [x] genres (n:m -> Genre)
+  - [x] countries (n:m -> Country)
+  - [x] length (Integer)
+  - [x] directors (n:m -> Creator)
+  - [x] actors (n:m -> Creator)
+  - [x] description (String)
+  - [x] released_date (Date)
   - [ ] images (FK -> Image)
