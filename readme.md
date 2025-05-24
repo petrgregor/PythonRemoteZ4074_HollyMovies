@@ -41,7 +41,7 @@ python manage.py startapp <nazev_aplikace>
 >     'django.contrib.auth',
 >     'django.contrib.contenttypes',
 >     'django.contrib.sessions',
->     'dj[readme.md](readme.md)ango.contrib.messages',
+>     'django.contrib.messages',
 >     'django.contrib.staticfiles',
 >     
 >     'viewer',
