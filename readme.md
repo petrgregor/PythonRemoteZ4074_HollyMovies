@@ -63,7 +63,7 @@ Filmová databáze.
 
 ## Funkcionalita
 - [x] 1 Zobrazení seznamu filmů
-- [ ] 2 Zobrazení detailu filmu
+- [x] 2 Zobrazení detailu filmu
 - [ ] 3 Práce s filmem v databázi
   - [ ] 3.1 přidání filmu
   - [ ] 3.2 editace filmu

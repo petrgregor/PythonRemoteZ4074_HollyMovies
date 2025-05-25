@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie }}</title>
+</head>
+<body>
+<h1>{{ movie.title_orig }}</h1>
+{{ movie.title_cz }} <br>
+Žánry:
+    {% for genre in movie.genres.all %}
+        {{ genre }}{% if not forloop.last %},{% endif %}
+    {% empty %}
+        žádný
+    {% endfor %} <br>
+Země:
+    {% for country in movie.countries.all %}
+        {{ country }}{% if not forloop.last %},{% endif %}
+    {% empty %}
+        žádná
+    {% endfor %} <br>
+Délka: {{ movie.length }} minut <br>
+Režie:
+    {% for director in movie.directors.all %}
+        {{ director }}{% if not forloop.last %},{% endif %}
+    {% empty %}
+        nevyplněno
+    {% endfor %} <br>
+Hrají:
+    {% for actor in movie.actors.all %}
+        {{ actor }}{% if not forloop.last %},{% endif %}
+    {% empty %}
+        nevyplněno
+    {% endfor %} <br>
+Popis: {{ movie.description }} <br>
+Premiéra: {{ movie.released_date }}
+</body>
+</html>
