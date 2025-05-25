@@ -9,6 +9,8 @@
 <ul>
     {% for movie in movies %}
         <li>{{ movie }} ({{ movie.title_cz }})</li>
+    {% empty %}
+        <li>V databázi není žádný film.</li>
     {% endfor %}
 </ul>
 </body>

@@ -105,6 +105,24 @@ Migrace mění schéma databáze a skládá se ze dvou kroků:
 - `python manage.py makemigrations` - vytvoří migrační skript popisující změny
 - `python manage.py migrate` - spustí migrační skripty -> změnu schématu databáze
 
+### DUMP/LOAD databáze
+```bash
+pip install django-dump-load-utf8
+```
+
+Přidáme `'django_dump_load_utf8',` do seznamu nainstalovaných aplikací 
+`INSTALLED_APPS` v souboru `settings.py`. 
+
+#### DUMP
+```bash
+python manage.py dumpdatautf8 viewer --output .\files\fixtures.json
+```
+
+#### LOAD
+```bash
+python manage.py loaddatautf8 .\files\fixtures.json
+```
+
 ## Testování
 Každá aplikace má souboru `tests.py`, do kterého můžeme vkládat testy.
 Testovací soubor lze rozdělit do více souborů, každý z těchto souborů by měl začínat `test*`.
@@ -117,3 +135,5 @@ Lze spustit testy v jednom zadaném souboru příkazem `python manage.py test vi
 
 Běžné testy se provádějí na virtuální databázi, která má stejné schéma, jak naše
 definovaná databáze v `models.py`, ale je prázdná a nezávislá na skutečné databázi.
+
+
