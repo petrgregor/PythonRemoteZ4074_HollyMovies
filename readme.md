@@ -62,7 +62,7 @@ python manage.py createsuperuser
 Filmová databáze.
 
 ## Funkcionalita
-- [ ] 1 Zobrazení seznamu filmů
+- [x] 1 Zobrazení seznamu filmů
 - [ ] 2 Zobrazení detailu filmu
 - [ ] 3 Práce s filmem v databázi
   - [ ] 3.1 přidání filmu
