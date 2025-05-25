@@ -17,11 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from viewer.views import Movies, MovieDetail
+from viewer.views import Movies, MovieDetail, GenreCreateView, GenreUpdateView, \
+    GenreDeleteView, CountryCreateView, CountryUpdateView, CountryDeleteView, \
+    CreatorCreateView, CreatorUpdateView, CreatorDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('genre/create/', GenreCreateView.as_view(), name='genre_create'),
+    path('genre/update/<int:pk>/', GenreUpdateView.as_view(), name='genre_update'),
+    path('genre/delete/<int:pk>/', GenreDeleteView.as_view(), name='genre_delete'),
+    path('country/create/', CountryCreateView.as_view(), name='country_create'),
+    path('country/update/<int:pk>/', CountryUpdateView.as_view(), name='country_update'),
+    path('country/delete/<int:pk>/', CountryDeleteView.as_view(), name='country_delete'),
+    path('creator/create/', CreatorCreateView.as_view(), name='creator_create'),
+    path('creator/update/<int:pk>/', CreatorUpdateView.as_view(), name='creator_update'),
+    path('creator/delete/<int:pk>/', CreatorDeleteView.as_view(), name='creator_delete'),
     path('movies/', Movies.as_view(), name='movies'),
     path('movie/<int:pk>/', MovieDetail.as_view(), name='movie'),
 ]
