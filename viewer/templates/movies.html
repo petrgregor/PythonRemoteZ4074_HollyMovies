@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Seznam filmů</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    Seznam filmů
+{% endblock %}
+
+{% block content %}
 <h1>Seznam filmů</h1>
 <ul>
     {% for movie in movies %}
-        <li>{{ movie }} ({{ movie.title_cz }})</li>
+        <li><a href="{% url 'movie' movie.id %}">{{ movie }} ({{ movie.title_cz }})</a></li>
     {% empty %}
         <li>V databázi není žádný film.</li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}

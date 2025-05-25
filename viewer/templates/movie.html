@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ movie }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ movie.title_orig }}
+{% endblock %}
+
+{% block content %}
 <h1>{{ movie.title_orig }}</h1>
 {{ movie.title_cz }} <br>
 Žánry:
@@ -34,5 +34,4 @@ Hrají:
     {% endfor %} <br>
 Popis: {{ movie.description }} <br>
 Premiéra: {{ movie.released_date }}
-</body>
-</html>
+{% endblock %}
