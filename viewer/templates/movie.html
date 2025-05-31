@@ -33,5 +33,9 @@ Hrají:
         nevyplněno
     {% endfor %} <br>
 Popis: {{ movie.description }} <br>
-Premiéra: {{ movie.released_date }}
+Premiéra: {{ movie.released_date }} <br>
+
+<a href="{% url 'movie_update' movie.id %}" class="btn btn-primary">Aktualizovat</a>
+<a href="{% url 'movie_delete' movie.id %}" class="btn btn-danger">Smazat</a>
+
 {% endblock %}

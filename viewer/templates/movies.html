@@ -9,7 +9,11 @@
 <a href="{% url 'movie_create' %}" class="btn btn-primary">Přidat film</a>
 <ul>
     {% for movie in movies %}
-        <li><a href="{% url 'movie' movie.id %}">{{ movie }} ({{ movie.title_cz }})</a></li>
+        <li>
+            <a href="{% url 'movie' movie.id %}">{{ movie }} ({{ movie.title_cz }})</a>
+            <a href="{% url 'movie_update' movie.id %}">✏️</a>
+            <a href="{% url 'movie_delete' movie.id %}">❌</a>
+        </li>
     {% empty %}
         <li>V databázi není žádný film.</li>
     {% endfor %}

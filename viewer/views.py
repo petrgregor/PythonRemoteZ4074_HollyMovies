@@ -104,3 +104,16 @@ class MovieCreate(CreateView):
     form_class = MovieForm
     template_name = 'form.html'
     success_url = reverse_lazy('movies')
+
+
+class MovieUpdate(UpdateView):
+    form_class = MovieForm
+    template_name = 'form.html'
+    model = Movie
+    success_url = reverse_lazy('movies')
+
+
+class MovieDelete(DeleteView):
+    template_name = 'confirm_delete.html'
+    model = Movie
+    success_url = reverse_lazy('movies')
