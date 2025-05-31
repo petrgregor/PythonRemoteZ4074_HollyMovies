@@ -20,7 +20,7 @@ from django.urls import path
 from viewer.views import Movies, MovieDetail, GenreCreateView, GenreUpdateView, \
     GenreDeleteView, CountryCreateView, CountryUpdateView, CountryDeleteView, \
     CreatorCreateView, CreatorUpdateView, CreatorDeleteView, MovieCreate, \
-    MovieUpdate, MovieDelete
+    MovieUpdate, MovieDelete, queries
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,4 +39,6 @@ urlpatterns = [
     path('movie/create/', MovieCreate.as_view(), name='movie_create'),
     path('movie/update/<int:pk>/', MovieUpdate.as_view(), name='movie_update'),
     path('movie/delete/<int:pk>/', MovieDelete.as_view(), name='movie_delete'),
+
+    path('queries/', queries, name='queries'),
 ]

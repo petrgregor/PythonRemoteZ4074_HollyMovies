@@ -117,3 +117,69 @@ class MovieDelete(DeleteView):
     template_name = 'confirm_delete.html'
     model = Movie
     success_url = reverse_lazy('movies')
+
+
+def queries(request):
+    # všechny filmy
+    movies_all = Movie.objects.all()
+
+    # filmy žánru drama
+    # .get() vrací jeden záznam dle daných parametrů
+    genre_drama = Genre.objects.get(name="Drama")
+    # .filter() vrací kolekci všech záznamů, které vyhovují daným kritériím
+    movies_drama = Movie.objects.filter(genres=genre_drama)
+
+    # filmy žánru komedie
+    #movies_comedy = Movie.objects.filter(genres=Genre.objects.get(name="Komedie"))
+    movies_comedy = Movie.objects.filter(genres__name='Komedie')
+
+    # filmy žánru Mysteriózní
+    genre_mystery = Genre.objects.get(name='Mysteriózní')
+
+    # všechny žánry a jejich filmy
+    genres = Genre.objects.all()
+
+    # všechny země a jejich tvůrci
+    countries = Country.objects.all()
+
+    # tvůrci seřazení dle data narození
+    #creators = Creator.objects.all().order_by('date_of_birth')
+    creators = Creator.objects.all().order_by('-date_of_birth')
+
+    # tvůrci narození v roce 1937
+    creators_1937 = Creator.objects.filter(date_of_birth__year=1937)
+
+    # tvůrce narozený v roce 1937
+    # creator_1937 = Creator.objects.get(date_of_birth__year=1937) ## nefunguje
+    creator_1937 = Creator.objects.filter(date_of_birth__year=1937).first()
+
+    # tvůrci narození jindy než v roce 1937
+    creators_1937_ne = Creator.objects.exclude(date_of_birth__year=1937)
+
+    # tvůrci narození po roce 1960
+    # __gt -> greather then -> větší než
+    creators_after_1960 = Creator.objects.filter(date_of_birth__year__gt=1960)
+    ## __gte -> greather then equal -> větší rovno
+    ## __lt -> less then -> menší než
+    ## __lte -> less then equal -> menší rovno
+
+    # více podmínek
+    # tvůrci narození mezi roky 1950 a 1960
+    #creators_1950_1960 = Creator.objects.filter(date_of_birth__year__gte=1950).filter(date_of_birth__year__lte=1960)
+    creators_1950_1960 = Creator.objects.filter(date_of_birth__year__gte=1950,
+                                                date_of_birth__year__lte=1960)
+
+    context = {'movies_all': movies_all,
+               'movies_drama': movies_drama,
+               'movies_comedy': movies_comedy,
+               'genre_mystery': genre_mystery,
+               'genres': genres,
+               'countries': countries,
+               'creators': creators,
+               'creators_1937': creators_1937,
+               'creator_1937': creator_1937,
+               'creators_after_1960': creators_after_1960,
+               'creators_1950_1960': creators_1950_1960}
+    return render(request=request,
+                  template_name='queries.html',
+                  context=context)

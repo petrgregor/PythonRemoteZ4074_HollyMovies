@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Dotazy do databáze
+{% endblock %}
+
+{% block content %}
+<h1>Dotazy do databáze</h1>
+
+<h2>Všechny filmy</h2>
+<ul>
+    {% for movie in movies_all %}
+        <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+    {% endfor %}
+</ul>
+
+<h2>Filmy s žánrem 'Drama'</h2>
+<ul>
+    {% for movie in movies_drama %}
+        <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+    {% endfor %}
+</ul>
+
+<h2>Filmy s žánrem 'Komedie'</h2>
+<ul>
+    {% for movie in movies_comedy %}
+        <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+    {% endfor %}
+</ul>
+
+<h2>Filmy s žánrem '{{ genre_mystery }}'</h2>
+<ul>
+    {% for movie in genre_mystery.movies.all %}
+        <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+    {% endfor %}
+</ul>
+
+<hr>
+<h2>Žánry a jejich filmy</h2>
+<ul>
+    {% for genre in genres %}
+        <li>{{ genre }} ({{ genre.movies.count }})
+            <ul>
+                {% for movie in genre.movies.all %}
+                <li><a href="{% url 'movie' movie.id %}">{{ movie }}</a></li>
+                {% empty %}
+                    V této kategorii není žádný film.
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<hr>
+<h2>Země a jejich tvůrci</h2>
+<ul>
+    {% for country in countries %}
+        <li>{{ country }} ({{ country.creators.count }})
+        <ul>
+            {% for creator in country.creators.all %}
+                <li>{{ creator }}</li>
+            {% empty %}
+                V databázi není žádný tvůrce z této země.
+            {% endfor %}
+        </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<hr>
+<h2>Tvůrci seřazení dle data narození</h2>
+<ul>
+    {% for creator in creators %}
+        <li>{{ creator }} ({{ creator.date_of_birth }})</li>
+    {% endfor %}
+</ul>
+
+<hr>
+<h2>Tvůrci narození v roce 1937</h2>
+<ul>
+    {% for creator in creators_1937 %}
+        <li>{{ creator }} ({{ creator.date_of_birth }})</li>
+    {% endfor %}
+    <hr>
+    <li>{{ creator_1937 }}</li>
+</ul>
+
+<hr>
+<h2>Tvůrci narození po roce 1960</h2>
+<ul>
+    {% for creator in creators_after_1960 %}
+        <li>{{ creator }} ({{ creator.date_of_birth }})</li>
+    {% endfor %}
+</ul>
+
+<hr>
+<h2>Tvůrci narození mezi roky 1950 a 1960 </h2>
+<ul>
+    {% for creator in creators_1950_1960 %}
+        <li>{{ creator }} ({{ creator.date_of_birth }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}
