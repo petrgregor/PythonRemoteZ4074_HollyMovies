@@ -21,3 +21,11 @@ class MyLoginView(LoginView):
 def user_logout(request):
     logout(request)
     return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+"""
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+"""
