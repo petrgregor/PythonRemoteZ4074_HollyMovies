@@ -12,5 +12,13 @@
                 <a class="nav-item nav-link active" href="{% url 'movies' %}">Filmy</a>
             </div>
         </div>
+
+        {% if user.is_authenticated %}
+            {{ user.username }}
+            <a href="{% url 'logout' %}">Odhlášení</a>
+        {% else %}
+            <a href="{% url 'signup' %}">Registrace</a>
+            <a href="{% url 'login' %}">Přihlášení</a>
+        {% endif %}
     </div>
 </nav>
