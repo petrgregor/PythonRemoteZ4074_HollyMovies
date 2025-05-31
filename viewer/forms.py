@@ -4,7 +4,7 @@ from datetime import date
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, DateField, NumberInput
 
-from viewer.models import Genre, Country, Creator
+from viewer.models import Genre, Country, Creator, Movie
 
 
 class GenreForm(ModelForm):
@@ -106,3 +106,33 @@ class CreatorForm(ModelForm):
             raise ValidationError(error_message)
 
         return cleaned_data
+
+
+class MovieForm(ModelForm):
+    class Meta:
+        model = Movie
+        fields = '__all__'
+
+        labels = {
+            'title_orig': 'Originální název',
+            'title_cz': 'Český název',
+            'genres': 'Žánry',
+            'countries': 'Země',
+            'length': 'Délka',
+            'directors': 'Režie',
+            'actors': 'Herci',
+            'description': 'Popis',
+            'released_date': 'Datum premiéry'
+        }
+
+        help_texts = {
+            'length': 'Délka filmu v minutách.'
+        }
+
+    released_date = DateField(required=False,
+                              widget=NumberInput(attrs={'type': 'date'}),
+                              label='Datum premiéry')
+
+    def clean_title_orig(self):
+        initial = self.cleaned_data['title_orig']
+        return initial.capitalize()

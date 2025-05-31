@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, \
     DeleteView
 
-from viewer.forms import GenreForm, CountryForm, CreatorForm
+from viewer.forms import GenreForm, CountryForm, CreatorForm, MovieForm
 from viewer.models import Movie, Genre, Country, Creator
 
 
@@ -98,3 +98,9 @@ class MovieDetail(DetailView):
     model = Movie
     template_name = 'movie.html'
     context_object_name = 'movie'
+
+
+class MovieCreate(CreateView):
+    form_class = MovieForm
+    template_name = 'form.html'
+    success_url = reverse_lazy('movies')

@@ -65,7 +65,7 @@ Filmová databáze.
 - [x] 1 Zobrazení seznamu filmů
 - [x] 2 Zobrazení detailu filmu
 - [ ] 3 Práce s filmem v databázi
-  - [ ] 3.1 přidání filmu
+  - [x] 3.1 přidání filmu
   - [ ] 3.2 editace filmu
   - [ ] 3.3 mazání filmu
 
